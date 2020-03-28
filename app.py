@@ -1,6 +1,5 @@
 import datetime as dt
 import numpy as np
-import sqlalchemy
 from flask import Flask, render_template, redirect
 
 #### Setup Flask ####

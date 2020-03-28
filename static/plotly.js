@@ -70,6 +70,7 @@ function plotBubble(selectedName) {
         marker: {
           opacity: [1, 0.8, 0.6, 0.4],
           color: otu_ids, // Requirements: - Use `otu_ids` for the marker colors.
+          colorscale: 'Viridis',
           size: all_samples // Requirements: - Use `sample_values` for the marker size.
         }
     };

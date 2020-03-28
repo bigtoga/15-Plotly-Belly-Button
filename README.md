@@ -6,13 +6,20 @@ In this assignment, you will build an interactive dashboard to explore the [Bell
 
 The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
 
+## Deploying to Heroku
+** Create your requirements.txt **
+pip freeze > requirements.txt
+
+** Can later use this to install **
+pip install -r requirements.txt
+
 ### Homework Requirements/Deliverables
 | Step  | √ | Requirement |
 | Step | √ | Requirement |
 | :---: | :---: | :--- 
 | 01 | √ | Use the D3 library to read in `samples.json` and create an interactive dashboard using Plotly JS (hw02.png)
 | 01 | √ | Update all of the plots any time that a new sample is selected.
-| 02 |  | Deploy your app to a free static page hosting service
+| 02 | √ | Deploy your app to a free static page hosting service - https://plotly-belly-button-sw.herokuapp.com/
 
 
 ### Development Requirements
@@ -31,7 +38,7 @@ The dataset reveals that a small handful of microbial species (also called opera
 | 11 | √ | ** Demographics ** - Display the sample metadata, i.e., an individual's demographic information. (hw03.png)
 | 12 | √ | ** Misc ** - Display each key-value pair from the metadata JSON object somewhere on the page.
 | 13 | √ |    - Update all of the plots any time that a new sample is selected.
-| 14 |  |    - Deploy your app to a free static page hosting service
+| 14 | √ |    - Deploy your app to a free static page hosting service - https://plotly-belly-button-sw.herokuapp.com/
 
 ### Bonus / Optional
 | Step | √ | Requirement |
@@ -58,4 +65,4 @@ The dataset reveals that a small handful of microbial species (also called opera
 | 13 | √ | ** Metadata & Deployment ** 
 | 14 | √ |    - metadata initializes w/o error
 | 15 | √ |    - metadata updates when a new sample is selected
-| 16 |  |    - deployed to github free hosting / Heroku / etc
+| 16 | √ |    - deployed to github free hosting / Heroku / etc - https://plotly-belly-button-sw.herokuapp.com/
