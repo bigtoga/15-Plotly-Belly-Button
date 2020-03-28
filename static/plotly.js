@@ -33,6 +33,9 @@ d3.json("static/js/samples.json").then((jsonFile) => {
   // Create the bar plot
   plotBar(selectedName);
 
+  // Bonus:
+  plotGauge(selectedName);
+
   // Bubble it up!
   plotBubble(selectedName);
 });
@@ -46,7 +49,7 @@ d3.json("static/js/samples.json").then((jsonFile) => {
 // Requirements: "** Bubble Chart ** Create a bubble chart that displays each sample."
 function plotBubble(selectedName) {
     // "selectedName" variable is populated in the "optionChanged()" function
-    // Filter the metadata to return only that name's data
+    // Filter the samples to return only that name's data
 
     var chosen = samples.filter(function(item){
       return item.id == Number(selectedName);
@@ -97,7 +100,7 @@ function plotBubble(selectedName) {
 // Requirements: ** Bar Chart** Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual. (hw01.png)
 function plotBar() {
     // "selectedName" variable is populated in the "optionChanged()" function
-    // Filter the metadata to return only that name's data
+    // Filter the samples to return only that name's data
   var chosenName = samples.filter(function(item){
     return item.id == Number(selectedName)
   })[0];
@@ -156,6 +159,70 @@ function populateDropDownList(names) {
 }
 
 /*
+  ###############################################
+  Bonus
+  ###############################################
+*/
+
+// Requirements: "** Bubble Chart ** Create a bubble chart that displays each sample."
+function plotGauge(selectedName) {
+  // "selectedName" variable is populated in the "optionChanged()" function
+  // Filter the metadata to return only that name's data
+
+  var chosen = metadata.filter(function(item){
+    return item.id == Number(selectedName);
+  })[0];
+
+  // When the user selects a test subject in drop down, set the needle to chosen.wfreq
+  // The gauge's min/max is the min/max of that column
+
+  // Requirements: - Use `wfreq` for the y values.
+  var washFreq = chosen.wfreq;
+  console.log(chosen.id);
+  var data = [
+    {
+      domain: { x: [1, 9], y: [1, 9] },
+      value: chosen.wfreq,
+      title: { text: "Scrubs per week" },
+      type: "indicator",
+      mode: "gauge+number+indicator",
+      gauge: {
+        axis: { range: [null, 9] },
+        steps: [
+          { range: [0, 1], color: "white" },
+          { range: [1, 2], color: "lightgray" },
+          { range: [2, 3], color: "cyan" },
+          { range: [3, 4], color: "blue" },
+          { range: [4, 5], color: "royalblue" },
+          { range: [5, 6], color: "RebeccaPurple" },
+          { range: [6, 7], color: "pink" },
+          { range: [8, 9], color: "orange" }
+        ]
+      }
+    }
+  ];
+  
+  var layout = { 
+    width: 600, 
+    height: 450, 
+    title: "The Title",
+    margin: { t: 0, b: 0 } 
+  };
+  
+  Plotly.newPlot('gauge', data, layout);
+
+  if(debug){
+    console.log('06. Gauge created: ' + JSON.stringify(chosen));
+  }
+  else {
+    console.log('06. Gauge created for Subject ID #' + chosen.id);
+    console.log('   ... wfreq: ' + washFreq);
+    console.log('06. Gauge created: ' + JSON.stringify(chosen.wfreq));
+  }
+}
+
+
+/*
   ######################################################
     Event handlers
   ######################################################
@@ -192,6 +259,7 @@ function optionChanged(name){
     selectedName = name;
     dropDownSelectedEvent(selectedName);
     plotBar(selectedName);
+    plotGauge(selectedName);
     plotBubble(selectedName);
   }
 }

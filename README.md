@@ -43,9 +43,9 @@ pip install -r requirements.txt
 ### Bonus / Optional
 | Step | √ | Requirement |
 | :---: | :---: | :--- 
-| 01 |  | Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the weekly washing frequency of the individual.
-| 02 |  |    - modify the example gauge code to account for values ranging from 0 through 9.
-| 03 |  |    - Update the chart whenever a new sample is selected.
+| 01 | √ | Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the weekly washing frequency of the individual.
+| 02 | √ |    - modify the example gauge code to account for values ranging from 0 through 9.
+| 03 | √ |    - Update the chart whenever a new sample is selected.
 
 ### From the grading rubric pdf:
 | Step | √ | Requirement |
